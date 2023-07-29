@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nyanza Complex Rifle Club</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+
+</head>
+    <header>
+  <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+  <span class="logo-text" style="color: white;">NYANZA COMPLEX RIFLE CLUB</span>
+</header>
+  <body>
+    <nav class="navbar">
+    <div class="navbar-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="navbar-menu" id="navbarMenu">
+      <li class="navbar-item"><button ><a href="/home">Home Page</a></button></li>
+      <li class="navbar-item"><button ><a href="/add_member">Add Member</a></button></li>
+      <li class="navbar-item"><button><a href="/members">View Members</a></button></li>
+    </ul>
+  </nav>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div class="det" style="text-align: center;">
+        <h1>Member Details</h1>
+    {% if member %}
+      
+      <p>Membership Number: {{ member[0] }}</p>
+      <p>Member_full_Name: {{ member[1] }}</p>
+      <p>Postal Address: {{ member[2] }}</p>
+      <p>FC Number: {{ member[3] }}</p>
+      <p>ID Number: {{ member[4] }}</p>
+      <p>County: {{ member[5] }}</p>
+      <p>Telephone Number: {{ member[6] }}</p>
+      <p>Email: {{ member[7] }}</p>
+      <p>Membership Category: {{ member[8] }}</p>
+      <p>Spouse: {{ member[9] }}</p>
+      <p>Spouse Contact: {{ member[10] }}</p>
+      <p>Company: {{ member[11] }}</p>
+      <p>Employer: {{ member[12] }}</p>
+      <p>Proposer: {{ member[13] }}</p>
+      
+    {% else %}
+      <p>Member not found.</p>
+    {% endif %}
+
+</div>
+</body>
+</html>

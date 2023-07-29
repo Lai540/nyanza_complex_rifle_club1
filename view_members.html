@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nyanza Complex Rifle Club</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
+</head>
+<body>
+        <header>
+  <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+  <span class="logo-text" style="color: white;">NYANZA COMPLEX RIFLE CLUB</span>
+</header>
+    <nav class="navbar">
+    <div class="navbar-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="navbar-menu" id="navbarMenu">
+      <li class="navbar-item"><button><a href="/home">Home Page</a></button></li>
+      <li class="navbar-item"><button><a href="/add_member">Add Member</a></button></li>
+      <!-- Add more menu items as needed -->
+    </ul>
+  </nav>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <div class = "members">
+
+    <h2>Club Members</h2>
+<table>
+    <tr><th>Member_number</th>
+        <th>Member_full_Name</th>
+        <th>Postal_address</th>
+        <th>Fc_no</th>
+        <th>ID_number</th>
+        <th>County</th>
+        <th>Telephone</th>
+        <th>Email</th>
+        <th>Membership_category</th>
+        <th>Spouse</th>
+        <th>Spouse_contact</th>
+        <th>Company</th>
+        <th>Employer</th>
+        <th>Proposer</th>
+    </tr>
+    {% for member in members %}
+    <tr>
+        <td>{{ member[0] }}</td>
+        <td>{{ member[1] }}</td>
+        <td>{{ member[2] }}</td>
+        <td>{{ member[3] }}</td>
+        <td>{{ member[4] }}</td>
+        <td>{{ member[5] }}</td>
+        <td>{{ member[6] }}</td>
+        <td>{{ member[7] }}</td>
+        <td>{{ member[8] }}</td>
+        <td>{{ member[9] }}</td>
+        <td>{{ member[10] }}</td>
+        <td>{{ member[11] }}</td>
+        <td>{{ member[12] }}</td>
+        <td>{{ member[13] }}</td>
+        <td><button><a href="/remove_member/{{ member[4] }}">Remove</a></button></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nyanza Complex Rifle Club</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}" style="position: static;">
+
+</head>
+<body>
+
+		<header>
+  <img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+  <span class="logo-text" style="color: white;">NYANZA COMPLEX RIFLE CLUB</span>
+</header>
+
+  <nav class="navbar">
+    <div class="navbar-toggle" onclick="toggleMenu()">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul class="navbar-menu" id="navbarMenu">
+      <li class="navbar-item"><button><a href="/home">Home Page</a></button></li>
+      <li class="navbar-item"><button><a href="/add_member">Add Member</a></button></li>
+      <li class="navbar-item"><button><a href="/members">View Members</a></button></li>
+
+    </ul>
+  </nav>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+ 
+    <div id="first">
+    	<h1>Update Member Details</h1>
+    <form method="POST" action="/update_member_details">
+        <input type="hidden" name="Member_number" value="{{ member[0] }}">
+        <label for="Member_full_Name">Name:</label>
+        <input type="text" name="Member_full_Name" value="{{ member[1] }}" required><br>
+
+        <label for="Postal_address">Postal Address:</label>
+        <input type="text" name="Postal_address" value="{{ member[2] }}"><br>
+
+        <label for="FC_no">FC Number:</label>
+        <input type="text" name="Fc_no" value="{{ member[3] }}"><br>
+
+        <label for="ID_number">ID Number:</label>
+        <input type="text" name="ID_number" value="{{ member[4] }}" required><br>
+
+        <label for="County">County:</label>
+        <input type="text" name="County" value="{{ member[5] }}" required><br>
+
+        <label for="Telephone">Telephone:</label>
+        <input type="text" name="Telephone" value="{{ member[6] }}"><br>
+
+        <label for="Email">Email:</label>
+        <input type="email" name="Email" value="{{ member[7] }}"><br>
+
+        <label for="Membership_category">Membership Category:</label>
+        <input type="text" name="Membership_category" value="{{ member[8] }}"><br>
+
+        <label for="Spouse">Spouse:</label>
+        <input type="text" name="Spouse" value="{{ member[9] }}" required><br>
+
+        <label for="Spouse_contact">Spouse Contact:</label>
+        <input type="text" name="Spouse_contact" value="{{ member[10] }}"><br>
+
+        <label for="Company">Company:</label>
+        <input type="text" name="Company" value="{{ member[11] }}" required><br>
+
+        <label for="Employer">Employer:</label>
+        <input type="text" name="Employer" value="{{ member[12] }}" required><br>
+
+        <label for="Proposer">Proposer:</label>
+        <input type="text" name="Proposer" value="{{ member[13] }}" required><br>
+
+        <button type="submit" value="Update">Update</button>
+    </form>
+</div>
+</body>
+</html>
