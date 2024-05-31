@@ -1,1 +1,1 @@
-web: gunicorn app:pos
+web: gunicorn app:ncrc
